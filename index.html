@@ -66,12 +66,8 @@
                   <input type="text" name="mobile-number"
                   placeholder="Mobile Number" class="cta-input" 
                   />
-                  
-                  <!-- <input type="text" name="query-type"
-                  placeholder="Query Type" class="cta-input" 
-                  /> -->
 
-                  <div id="queryTypeDropdown" class="custom-dropdown">
+                  <!-- <div id="queryTypeDropdown" class="custom-dropdown">
                     <div class="dropdown-selected">Query Type</div>
                     <ul class="dropdown-options">
                       <li data-value="projects">Projects</li>
@@ -92,6 +88,18 @@
                       <li data-value="project-5">Project 5</li>
                       <li data-value="project-6">Project 6</li>
                     </ul>
+                  </div>
+                  <input type="hidden" name="selected-project" id="projectInput"> -->
+
+                  <div id="queryTypeDropdown" class="custom-dropdown">
+                    <div class="dropdown-selected">Query Type</div>
+                    <ul class="dropdown-options"></ul>
+                  </div>
+                  <input type="hidden" name="query-type" id="queryTypeInput" />
+
+                  <div id="projectDropdown" class="custom-dropdown hidden">
+                    <div class="dropdown-selected">Select Project</div>
+                    <ul class="dropdown-options"></ul>
                   </div>
                   <input type="hidden" name="selected-project" id="projectInput">
                 

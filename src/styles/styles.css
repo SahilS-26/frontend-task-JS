@@ -476,6 +476,7 @@ body {
   border: none;
   outline: none;
   background: none;
+  color: #383838;
 
   cursor: pointer;
   opacity: 0;

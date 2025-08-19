@@ -69,3 +69,22 @@ function setupScrollToTop() {
 }
 
 setupScrollToTop();
+
+// 3) Sticky header
+function initStickyHeader() {
+  const header = document.querySelector('.header-section');
+
+  if (!header) return;
+
+  function handleScroll() {
+    if (window.scrollY >= 300) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  }
+
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+}
+document.addEventListener('DOMContentLoaded', initStickyHeader);

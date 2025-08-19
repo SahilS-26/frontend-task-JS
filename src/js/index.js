@@ -5,6 +5,7 @@ function greet() {
 }
 document.addEventListener('DOMContentLoaded', greet);
 
+// 1) Dropdown - Logic
 function setupDropdown(dropdownId, hiddenInputId, onSelect = null) {
   const dropdown = document.getElementById(dropdownId);
   const selected = dropdown.querySelector('.dropdown-selected');
@@ -46,3 +47,25 @@ setupDropdown('queryTypeDropdown', 'queryTypeInput', value => {
 });
 
 setupDropdown('projectDropdown', 'projectInput');
+
+// 2) Scroll to Top - Logic
+function setupScrollToTop() {
+  const scrollBtn = document.querySelector('.scroll-to-top-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+}
+
+setupScrollToTop();

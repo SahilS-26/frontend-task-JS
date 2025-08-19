@@ -1,3 +1,6 @@
+import { QUERY_TYPES, QUERY_SUB_OPTIONS, SUB_LABELS } from './dropdownData';
+import { initDropdowns, renderOptions } from './dropdown';
+
 function greet() {
   console.log(
     'Hello Good Day Mate!!! \nPage Loaded sucessfully with parcel!!! \nI see it now ^_^'
@@ -5,6 +8,7 @@ function greet() {
 }
 document.addEventListener('DOMContentLoaded', greet);
 
+/*
 // 1) Dropdown - Logic
 function setupDropdown(dropdownId, hiddenInputId, onSelect = null) {
   const dropdown = document.getElementById(dropdownId);
@@ -47,6 +51,44 @@ setupDropdown('queryTypeDropdown', 'queryTypeInput', value => {
 });
 
 setupDropdown('projectDropdown', 'projectInput');
+*/
+
+// 1) Dropdown - Logic
+initDropdowns();
+// Initial render
+renderOptions('queryTypeDropdown', QUERY_TYPES);
+const subDropdown = document.getElementById('projectDropdown');
+if (subDropdown) {
+  const subSelected = subDropdown.querySelector('.dropdown-selected');
+  if (subSelected) subSelected.textContent = 'Select Option';
+  subDropdown.classList.add('hidden');
+  renderOptions('projectDropdown', []);
+}
+
+// React to changes in the first dropdown
+document
+  .getElementById('queryTypeDropdown')
+  .addEventListener('dropdown:change', e => {
+    const type = e.detail.value;
+    const sub = document.getElementById('projectDropdown');
+    if (!sub) return;
+
+    const subSelected = sub.querySelector('.dropdown-selected');
+    if (subSelected) {
+      subSelected.textContent = SUB_LABELS[type] || 'Select Option';
+    }
+
+    const items = QUERY_SUB_OPTIONS[type] || [];
+    if (items.length) {
+      renderOptions('projectDropdown', items);
+      const hidden = sub.nextElementSibling;
+      if (hidden && hidden.type === 'hidden') hidden.value = '';
+      sub.classList.remove('hidden');
+    } else {
+      renderOptions('projectDropdown', []);
+      sub.classList.add('hidden');
+    }
+  });
 
 // 2) Scroll to Top - Logic
 function setupScrollToTop() {

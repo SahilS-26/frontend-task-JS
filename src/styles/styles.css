@@ -295,10 +295,15 @@ body {
   font-size: 16px;
   color: #8e8e8e;
   padding: 12px;
+  background-color: #fafafa;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   -o-transition: background 0.2s;
   transition: background 0.2s;
+}
+.dropdown-options li:nth-child(even) {
+  border-bottom: 0.35px solid #8e8e8e;
+  border-top: 0.35px solid #8e8e8e;
 }
 .dropdown-options li:hover {
   background: #f1f1f1;

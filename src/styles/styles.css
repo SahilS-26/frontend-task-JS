@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html {
   box-sizing: border-box;
@@ -400,6 +401,7 @@ body {
   color: #3c3c3c;
   background-color: #e4e4e4;
   text-transform: uppercase;
+  display: inline-block;
 }
 .quick-links {
   display: flex;
@@ -469,6 +471,7 @@ body {
   gap: 19px;
   justify-content: center;
   align-items: center;
+  list-style: none;
 }
 .social-link {
   text-decoration: none;
@@ -595,6 +598,7 @@ body {
   .header-section.sticky {
     padding: 20px;
   }
+  /* BG-image */
   .header-main-section_wrapper::before {
     background-size: 75% 90%;
   }
@@ -612,21 +616,31 @@ body {
     width: 16px;
     height: 16px;
   }
+
+  /* Main Section */
+  .main-section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .contact-info-sect {
+    padding: 50px 0 0;
+  }
+  .contact-info-wrapper {
+    margin-top: 0;
+  }
+  .temp-map-text {
+    display: none;
+  }
+  .contact-info-heading {
+  }
   .cta-form-sect {
-    /* display: none; */
   }
 
   .vertical-border-wrapper {
     padding-right: 40px;
   }
-  .contact-info-sect {
-    padding-left: 40px;
-  }
 
-  .contact-info-wrapper {
-    margin-top: 590px;
-  }
-
+  /* FOOTER */
   .footer_section {
     padding: 0 20px;
   }
@@ -636,7 +650,56 @@ body {
     z-index: 900;
   }
 
-  /* MOBILE NAV */
+  .footer-logo-sect {
+    margin-top: 13px;
+  }
+  .footer_links-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 47px;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 0 60px;
+  }
+  .quick-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .quick-nav-link {
+    font-size: 16px;
+  }
+  .footer-cta-form {
+    width: 100%;
+  }
+  .footer-cta-input {
+    width: 100%;
+  }
+  .footer-cta-btn {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .footer_copyright-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-text-light {
+    font-size: 16px;
+  }
+  .footer-text-light.order-last {
+    order: 1;
+  }
+  .footer-social-icons-wrapper {
+    justify-content: space-around;
+    width: 100%;
+  }
+  .social-link {
+    font-size: 18px;
+  }
+
+  /* ++++ MOBILE NAV ++++ */
   .btn-mobile-nav {
     display: block;
     justify-self: end;
@@ -693,4 +756,11 @@ body {
 
 /* Mobile portrait */
 @media only screen and (max-width: 480px) {
+  .contact-info-heading {
+    font-size: 24px;
+  }
+
+  .particular-info-title {
+    font-size: 24px;
+  }
 }

@@ -105,3 +105,28 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.toggle('nav-open');
   });
 });
+
+// 5) ENQUIRY MODAL
+function initEnquiryModal() {
+  const modalBtn = document.querySelector('.cta-modal-btn');
+  const modal = document.querySelector('.cta-form-modal');
+  const closeBtn = document.querySelector('.btn-close-modal');
+  const body = document.body;
+
+  // console.log('before return ---:> ');
+  if (!modalBtn || !modal) return;
+  // console.log('AFTER  return ---:> ');
+
+  modalBtn.addEventListener('click', () => {
+    // console.log('INSIDE MODAL BTN ---:> ');
+    modal.classList.add('active');
+    body.classList.add('nav-open'); // Scroll lock from modal nav modal.
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    // console.log('INSIDE close MODAL BTN  ---:> ');
+    modal.classList.remove('active');
+    body.classList.remove('nav-open');
+  });
+}
+document.addEventListener('DOMContentLoaded', initEnquiryModal);

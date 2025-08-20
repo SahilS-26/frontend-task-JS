@@ -62,35 +62,37 @@
               <div class="cta-wrapper">
                 <p class="cta-form-heading">Send us an Enquiry</p>
 
-                <form>
-                  <div class="cta-form-wrapper">
-                    <input type="text" name="name" 
-                    placeholder="Name" class="cta-input" 
-                    />
-                    <input type="text" name="email"
-                    placeholder="Email Address" class="cta-input" 
-                    />
-                    <input type="text" name="mobile-number"
-                    placeholder="Mobile Number" class="cta-input" 
-                    />
+                  <form class="cta-main-form">
+                    <div class="cta-form-wrapper">
+                      <input type="text" name="name" 
+                      placeholder="Name" class="cta-input" 
+                      />
+                      <input type="text" name="email"
+                      placeholder="Email Address" class="cta-input" 
+                      />
+                      <input type="text" name="mobile-number"
+                      placeholder="Mobile Number" class="cta-input" 
+                      />
 
 
-                    <div id="queryTypeDropdown" class="custom-dropdown">
-                      <div class="dropdown-selected">Query Type</div>
-                      <ul class="dropdown-options"></ul>
-                    </div>
-                    <input type="hidden" name="query-type" id="queryTypeInput" />
+                      <div id="queryTypeDropdown" class="custom-dropdown">
+                        <div class="dropdown-selected">Query Type</div>
+                        <ul class="dropdown-options"></ul>
+                      </div>
+                      <input type="hidden" name="query-type" id="queryTypeInput" />
 
-                    <div id="projectDropdown" class="custom-dropdown hidden">
-                      <div class="dropdown-selected">Select Project</div>
-                      <ul class="dropdown-options"></ul>
-                    </div>
-                    <input type="hidden" name="selected-project" id="projectInput" />
+                      <div id="projectDropdown" class="custom-dropdown hidden">
+                        <div class="dropdown-selected">Select Project</div>
+                        <ul class="dropdown-options"></ul>
+                      </div>
+                      <input type="hidden" name="selected-project" id="projectInput" />
                 
-                    <button type="submit" class="cta-submit-btn">Send</button>
+                      <button type="submit" class="cta-submit-btn">Send</button>
+                    </div>
+                  </form>
+              
+                  <div id="formSpot1"></div>
                 </div>
-              </form>
-              </div>
             </div>
           </div>
 
@@ -106,6 +108,8 @@
                 <div class="inner-circle"></div>
               </div>
             </div>
+            
+            
 
             <div class="contact-info-wrapper">
               <p class="contact-info-heading">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
@@ -234,6 +238,43 @@
         </span>
         <p class="scroll-to-top-text">To the top</p>
       </button>
+
+      <!-- CTA FORM MODAL -->
+            <div class="cta-form-modal">
+              <div class="cta-form-modal-innerWrapper">
+                <button type="button" class="btn-close-modal">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              
+                <form class="cta-main-form">
+                    <div class="cta-form-wrapper">
+                      <input type="text" name="name" 
+                      placeholder="Name" class="cta-input" 
+                      />
+                      <input type="text" name="email"
+                      placeholder="Email Address" class="cta-input" 
+                      />
+                      <input type="text" name="mobile-number"
+                      placeholder="Mobile Number" class="cta-input" 
+                      />
+
+                      <div id="queryTypeDropdown" class="custom-dropdown">
+                        <div class="dropdown-selected">Query Type</div>
+                        <ul class="dropdown-options"></ul>
+                      </div>
+                      <input type="hidden" name="query-type" id="queryTypeInput" />
+
+                      <div id="projectDropdown" class="custom-dropdown hidden">
+                        <div class="dropdown-selected">Select Project</div>
+                        <ul class="dropdown-options"></ul>
+                      </div>
+                      <input type="hidden" name="selected-project" id="projectInput" />
+                
+                      <button type="submit" class="cta-submit-btn">Send</button>
+                    </div>
+                </form>
+              </div>
+            </div>
     </main>
   </body>
 </html>

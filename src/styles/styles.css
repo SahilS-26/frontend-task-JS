@@ -118,7 +118,6 @@ body {
 .header-section,
 .header-main-section_wrapper > section {
   position: relative;
-  z-index: 1;
   background: transparent;
 }
 
@@ -527,6 +526,27 @@ body {
   font-family: Helvetica;
 }
 
+/* +++++++++++++++++++++++ */
+/* MOBILE NAVIGATION */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+  width: fit-content;
+}
+
+.icon-mobile-nav {
+  font-size: 20px;
+  color: #3971b1;
+}
+.menu-icon {
+}
+.close-icon {
+  display: none !important;
+}
+
 /* ++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++ */
 /* MEDIA QUERIES - LATER SPLIT IN DIFFERENT FILE */
@@ -563,8 +583,9 @@ body {
   }
 }
 
-/* Small Tablets */
-@media only screen and (min-width: 769px) and (max-width: 1023px) {
+/* MOBILE /  LANDSCAPE  MOBILE / TABLET  */
+/* @media only screen and (min-width: 769px) and (max-width: 1023px) { */
+@media only screen and (max-width: 1023px) {
   .header-main-section_wrapper {
     padding: 0 20px;
   }
@@ -612,6 +633,57 @@ body {
   .scroll-to-top-btn {
     bottom: 90px;
     right: 20px;
+    z-index: 900;
+  }
+
+  /* MOBILE NAV */
+  .btn-mobile-nav {
+    display: block;
+    justify-self: end;
+    z-index: 10001;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 10000;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+  }
+  .nav.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+  .nav-links-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .btn-mobile-nav .menu-icon {
+    display: inline-block;
+  }
+  .btn-mobile-nav .close-icon {
+    display: none;
+  }
+  .btn-mobile-nav.active .menu-icon {
+    display: none;
+  }
+  .btn-mobile-nav.active .close-icon {
+    display: inline-block !important;
+  }
+  body.nav-open {
+    overflow: hidden;
   }
 }
 

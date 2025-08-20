@@ -92,3 +92,16 @@ function initStickyHeader() {
   window.addEventListener('scroll', handleScroll);
 }
 document.addEventListener('DOMContentLoaded', initStickyHeader);
+
+// 4) MOBILE NAVIGATION
+document.addEventListener('DOMContentLoaded', () => {
+  const btnNav = document.querySelector('.btn-mobile-nav');
+  const nav = document.querySelector('.nav');
+  const body = document.body;
+
+  btnNav.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    btnNav.classList.toggle('active');
+    body.classList.toggle('nav-open');
+  });
+});

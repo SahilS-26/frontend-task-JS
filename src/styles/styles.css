@@ -54,18 +54,22 @@ body {
 
 /* ---------- ---------- */
 .main_container {
-  max-width: 1400px;
-  margin: 0 auto;
+  /* max-width: 1400px; */
+  /* margin: 0 auto; */
   position: relative;
   /* background-image: url('../assets//img/desktop-design.png');
   background-repeat: no-repeat;
   background-size: cover; */
+  /* background-color: #3971b1; */
 }
 
 /* -------------- HEADER --------------- */
 .header-main-section_wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 100px;
   background: none;
+  position: relative;
 }
 
 /* BG IMAGE */
@@ -79,12 +83,13 @@ body {
   height: 683px;
   width: 729px;
   background-image: url('../assets/img/map.png');
-  background-size: contain;
+  /* background-size: contain; */
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: top right;
   opacity: 1;
   pointer-events: none;
-  z-index: 0;
+  z-index: -100;
 }
 
 .header-section {
@@ -134,7 +139,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 50px;
+  justify-content: space-between;
+  gap: 10px;
 }
 .nav-link {
   font-size: 13px;
@@ -163,11 +169,12 @@ body {
   font-family: 'mu_slab_300';
 }
 .vertical-border-wrapper {
-  padding: 30px 0 145px;
+  /* padding: 30px 0 145px; */
+  padding: 30px 100px 145px 0;
   border-right: 1px solid #f4f4f4;
 }
 .cta-form-description {
-  width: 398px;
+  /* width: 398px; */
   /* margin-top: 70px; */
   margin-top: 40px;
 }
@@ -187,7 +194,7 @@ body {
 }
 .cta-form-wrapper {
   margin-top: 50px;
-  width: 475px;
+  /* width: 475px; */
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -306,8 +313,10 @@ body {
 }
 .map-position-pointer-wrapper {
   position: absolute;
-  top: 300px;
-  right: 360px;
+  /* top: 300px;
+  right: 360px; */
+  top: 340px;
+  right: 356px;
 }
 .map-pointer-wrapper {
   position: relative;
@@ -335,9 +344,8 @@ body {
 }
 
 .contact-info-wrapper {
-  width: 479px;
-  /* margin-top: 629px; */
-  margin-top: 615px;
+  /* width: 479px; */
+  margin-top: 629px;
 
   display: flex;
   flex-direction: column;
@@ -381,7 +389,8 @@ body {
   padding: 51px 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 194;
+  /* gap: 194px; */
+  justify-content: space-between;
 }
 .footer-logo-sect {
 }
@@ -494,6 +503,7 @@ body {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease, visiblity 0.3s ease;
+  z-index: 999;
 }
 .scroll-to-top-btn.show {
   opacity: 1;
@@ -515,4 +525,100 @@ body {
 .scroll-to-top-text {
   font-size: 14px;
   font-family: Helvetica;
+}
+
+/* ++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++ */
+/* MEDIA QUERIES - LATER SPLIT IN DIFFERENT FILE */
+
+/* Large screens (desktops > 1400px) */
+@media only screen and (min-width: 1401px) {
+  .footer_section-wrapper {
+    width: 100%;
+    background: #f4f4f4 0% 0% no-repeat padding-box;
+  }
+  .footer_section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 100px;
+  }
+}
+
+/* Big Tablets & small laptops */
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+  .nav-links-wrapper {
+    gap: 8px;
+  }
+  .header-main-section_wrapper::before {
+    /* width: 729px;
+    height: 683px; */
+    background-size: 80% 90%;
+  }
+  .map-position-pointer-wrapper {
+    top: 290px;
+    right: 270px;
+  }
+  .contact-info-wrapper {
+    margin-top: 590px;
+  }
+}
+
+/* Small Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+  .header-main-section_wrapper {
+    padding: 0 20px;
+  }
+  .header-section {
+    padding: 20px 0;
+  }
+  .header-section.sticky {
+    padding: 20px;
+  }
+  .header-main-section_wrapper::before {
+    background-size: 75% 90%;
+  }
+  .map-position-pointer-wrapper {
+    top: 320px;
+    right: 335px;
+  }
+  .map-pointer-wrapper,
+  .outer-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inner-circle {
+    width: 16px;
+    height: 16px;
+  }
+  .cta-form-sect {
+    /* display: none; */
+  }
+
+  .vertical-border-wrapper {
+    padding-right: 40px;
+  }
+  .contact-info-sect {
+    padding-left: 40px;
+  }
+
+  .contact-info-wrapper {
+    margin-top: 590px;
+  }
+
+  .footer_section {
+    padding: 0 20px;
+  }
+  .scroll-to-top-btn {
+    bottom: 90px;
+    right: 20px;
+  }
+}
+
+/* Mobile landscape */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Mobile portrait */
+@media only screen and (max-width: 480px) {
 }

@@ -73,11 +73,18 @@ function initStickyHeader() {
 
   if (!header) return;
 
+  const tempDivPlaceHolder = document.createElement('div');
+  tempDivPlaceHolder.style.height = `${header.offsetHeight}px`;
+  tempDivPlaceHolder.style.display = 'none';
+  header.parentNode.insertBefore(tempDivPlaceHolder, header);
+
   function handleScroll() {
     if (window.scrollY >= 300) {
       header.classList.add('sticky');
+      tempDivPlaceHolder.style.display = 'block';
     } else {
       header.classList.remove('sticky');
+      tempDivPlaceHolder.style.display = 'none';
     }
   }
 

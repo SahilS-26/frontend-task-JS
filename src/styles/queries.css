@@ -225,6 +225,7 @@
     pointer-events: none;
     transform: translateX(100%);
     transition: all 0.3s ease-in-out;
+    overflow-y: scroll;
   }
   .cta-form-modal.active {
     opacity: 1;

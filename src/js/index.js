@@ -11,21 +11,24 @@ document.addEventListener('DOMContentLoaded', greet);
 // 1) Dropdown - Logic
 initDropdowns();
 // Initial render
-renderOptions('queryTypeDropdown', QUERY_TYPES);
-const subDropdown = document.getElementById('projectDropdown');
-if (subDropdown) {
-  const subSelected = subDropdown.querySelector('.dropdown-selected');
-  if (subSelected) subSelected.textContent = 'Select Option';
-  subDropdown.classList.add('hidden');
-  renderOptions('projectDropdown', []);
-}
+renderOptions('queryTypeDropdownMain', QUERY_TYPES);
+renderOptions('queryTypeDropdownModal', QUERY_TYPES);
 
-// React to changes in the first dropdown
-document
-  .getElementById('queryTypeDropdown')
-  .addEventListener('dropdown:change', e => {
+// Setup sub-dropdown logic for both main and modal forms
+function setupSubDropdown(dropdownId, subDropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  if (!dropdown) return;
+  const subDropdown = document.getElementById(subDropdownId);
+  if (subDropdown) {
+    const subSelected = subDropdown.querySelector('.dropdown-selected');
+    if (subSelected) subSelected.textContent = 'Select Option';
+    subDropdown.classList.add('hidden');
+    renderOptions(subDropdownId, []);
+  }
+
+  dropdown.addEventListener('dropdown:change', e => {
     const type = e.detail.value;
-    const sub = document.getElementById('projectDropdown');
+    const sub = document.getElementById(subDropdownId);
     if (!sub) return;
 
     const subSelected = sub.querySelector('.dropdown-selected');
@@ -35,15 +38,20 @@ document
 
     const items = QUERY_SUB_OPTIONS[type] || [];
     if (items.length) {
-      renderOptions('projectDropdown', items);
+      renderOptions(subDropdownId, items);
       const hidden = sub.nextElementSibling;
       if (hidden && hidden.type === 'hidden') hidden.value = '';
       sub.classList.remove('hidden');
     } else {
-      renderOptions('projectDropdown', []);
+      renderOptions(subDropdownId, []);
       sub.classList.add('hidden');
     }
   });
+}
+// Setup for main form
+setupSubDropdown('queryTypeDropdownMain', 'projectDropdownMain');
+// Setup for modal form
+setupSubDropdown('queryTypeDropdownModal', 'projectDropdownModal');
 
 // 2) Scroll to Top - Logic
 function setupScrollToTop() {
